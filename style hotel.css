@@ -1,0 +1,447 @@
+:root {
+  --hyatt-gold: #c8a96a;
+  --hyatt-gold-soft: #f2e3c9;
+  --hyatt-ink: #141417;
+  --hyatt-muted: #7c7b76;
+  --hyatt-line: #e2ddd2;
+  --card-radius: 22px;
+  --shadow-soft: 0 26px 70px rgba(0, 0, 0, 0.18);
+}
+
+/* GLOBAL */
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f6f3ec;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* NAVBAR */
+.navbar {
+  padding: 0.9rem 0;
+  background: rgba(246, 243, 236, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.navbar-brand {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.navbar-brand span {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--hyatt-muted);
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hyatt-muted);
+  padding-bottom: 0.15rem;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--hyatt-gold);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  background-image:
+    linear-gradient(to bottom, rgba(7, 9, 16, 0.2), rgba(7, 9, 16, 0.55)),
+    url(JAKGH-P1330-Building-Exterior-Sky.16x9.jpg.webp);
+  background-size: cover;
+  background-position: center;
+  color: #f9fafb;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-inner {
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 5.5rem;
+}
+
+.hero-label {
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--hyatt-gold-soft);
+  margin-bottom: 0.85rem;
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.6rem, 4.2vw, 3.5rem);
+  line-height: 1.05;
+  margin-bottom: 0.6rem;
+}
+
+.hero-subtitle {
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  font-size: 0.9rem;
+  color: rgba(249, 250, 251, 0.7);
+  margin-bottom: 1.3rem;
+}
+
+.hero-text {
+  max-width: 520px;
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: rgba(249, 250, 251, 0.88);
+}
+
+/* BOOKING STRIP */
+.booking-strip {
+  position: absolute;
+  left: 50%;
+  bottom: -42px;
+  transform: translateX(-50%);
+  background: #fdfbf7;
+  box-shadow: var(--shadow-soft);
+  border-radius: 999px;
+  padding: 1.2rem 1.6rem;
+  width: min(1120px, 92%);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.booking-strip label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--hyatt-muted);
+  margin-bottom: 0.25rem;
+}
+
+.booking-strip .form-control,
+.booking-strip .form-select {
+  border-radius: 999px;
+  font-size: 0.9rem;
+  padding: 0.55rem 1rem;
+  border-color: rgba(148, 163, 184, 0.4);
+}
+
+.booking-strip .form-control:focus,
+.booking-strip .form-select:focus {
+  border-color: var(--hyatt-gold);
+  box-shadow: 0 0 0 0.09rem rgba(200, 169, 106, 0.45);
+}
+
+.btn-book {
+  border-radius: 999px;
+  border: none;
+  width: 100%;
+  padding: 0.9rem 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: #151518;
+  color: #f9fafb;
+}
+
+.btn-book:hover {
+  background: #26262b;
+}
+
+/* SECTION GENERIC */
+section {
+  padding-top: 5.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.section-label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  color: var(--hyatt-muted);
+  margin-bottom: 0.4rem;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--hyatt-ink);
+}
+
+.text-muted-soft {
+  color: var(--hyatt-muted);
+}
+
+/* FILTER BAR + ROOMS */
+.rooms-wrapper {
+  background: #fdfbf7;
+  border-radius: 24px;
+  padding: 2.1rem 2rem;
+  border: 1px solid var(--hyatt-line);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+.filter-bar {
+  border-bottom: 1px solid var(--hyatt-line);
+  padding-bottom: 1rem;
+  margin-bottom: 1.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-segment {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--hyatt-muted);
+}
+
+.filter-pill {
+  border-radius: 999px;
+  border: 1px solid var(--hyatt-line);
+  padding: 0.3rem 0.85rem;
+  font-size: 0.76rem;
+  cursor: pointer;
+  background: #f7f1e4;
+}
+
+.filter-pill.active {
+  border-color: var(--hyatt-gold);
+  background: #f0e3cf;
+  color: #533f1f;
+}
+
+.price-range {
+  width: 210px;
+}
+
+.price-caption {
+  font-size: 0.76rem;
+  color: var(--hyatt-muted);
+}
+
+.rooms-count {
+  font-size: 0.78rem;
+  color: var(--hyatt-muted);
+}
+
+.room-card {
+  border-radius: 20px;
+  border: 1px solid var(--hyatt-line);
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.06);
+}
+
+.room-card + .room-card {
+  margin-top: 1rem;
+}
+
+.room-image {
+  flex: 0 0 260px;
+  max-width: 100%;
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.room-body {
+  flex: 1 1 280px;
+  padding: 1.3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.room-badge {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #f6f2ea;
+  color: #5b5343;
+}
+
+.room-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+}
+
+.room-meta {
+  font-size: 0.82rem;
+  color: var(--hyatt-muted);
+}
+
+.room-desc {
+  font-size: 0.86rem;
+  color: var(--hyatt-muted);
+  max-width: 480px;
+}
+
+.room-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.room-price-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--hyatt-muted);
+}
+
+.room-price {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.btn-room {
+  border-radius: 999px;
+  border: 1px solid #111827;
+  background: transparent;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #111827;
+}
+
+.btn-room:hover {
+  background: #111827;
+  color: #f9fafb;
+}
+
+/* EXPERIENCES / DINING CARDS (LIGHT) */
+.card-soft {
+  border-radius: 20px;
+  background: #fbf7f0;
+  border: 1px solid var(--hyatt-line);
+  padding: 1.4rem 1.5rem;
+  height: 100%;
+}
+
+.icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: #5b5343;
+}
+
+/* GALLERY */
+.gallery-main {
+  border-radius: 22px;
+  overflow: hidden;
+  height: 260px;
+}
+
+.gallery-main img,
+.gallery-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-small {
+  border-radius: 18px;
+  overflow: hidden;
+  height: 120px;
+}
+
+/* CONTACT & FOOTER */
+footer {
+  border-top: 1px solid var(--hyatt-line);
+  padding: 1.4rem 0;
+  font-size: 0.78rem;
+  color: var(--hyatt-muted);
+  background: #f7f3eb;
+}
+
+/* MODAL */
+.modal-content {
+  border-radius: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.modal-title {
+  font-family: "Playfair Display", serif;
+}
+
+@media (max-width: 992px) {
+  .booking-strip {
+    border-radius: 24px;
+    bottom: -32px;
+  }
+  .room-card {
+    flex-direction: column;
+  }
+  .room-image {
+    flex-basis: auto;
+    height: 210px;
+  }
+  .rooms-wrapper {
+    padding: 1.5rem 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .filter-bar {
+    align-items: flex-start;
+  }
+  .price-range {
+    width: 100%;
+  }
+}

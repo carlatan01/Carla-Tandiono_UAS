@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Grand Hyatt | Quiet Urban Luxury</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style hotel.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">
+        GRAND HYATT
+        <span>URBAN RESIDENCE • SINGAPORE</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-lg-3">
+          <li class="nav-item"><a class="nav-link active" href="#hero">Stay</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experiences">Experiences</a></li>
+          <li class="nav-item"><a class="nav-link" href="#dining">Dining</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-label">Singapore • Orchard Road</div>
+      <h1 class="hero-title">Quiet luxury, in the heart of the city.</h1>
+      <div class="hero-subtitle">Grand Hyatt signature stay</div>
+      <p class="hero-text">
+        A residential-style retreat with generous suites, calm dining spaces and
+        thoughtful service. Designed for guests who prefer their luxury quietly spoken.
+      </p>
+    </div>
+
+    <!-- BOOKING STRIP -->
+    <div class="booking-strip">
+      <form id="bookingForm" class="row g-3 align-items-end">
+        <div class="col-md-3">
+          <label class="form-label">Destination</label>
+          <input type="text" class="form-control" value="Grand Hyatt Singapore" readonly>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Check-in</label>
+          <input type="date" class="form-control" id="checkin" required>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Check-out</label>
+          <input type="date" class="form-control" id="checkout" required>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label">Guests</label>
+          <select class="form-select" id="guests" required>
+            <option value="" disabled selected>Select</option>
+            <option>1 Adult</option>
+            <option>2 Adults</option>
+            <option>3 Guests</option>
+            <option>4 Guests</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Room type</label>
+          <select class="form-select" id="roomType" required>
+            <option value="" disabled selected>Select room</option>
+            <option>Grand King City View</option>
+            <option>Grand Twin City View</option>
+            <option>Grand Club King</option>
+            <option>Grand Deluxe Room</option>
+            <option>Grand Suite City View</option>
+            <option>Ambassador Suite</option>
+            <option>Presidential Suite</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-auto ms-md-auto">
+          <button class="btn-book w-100 mt-2 mt-md-0" type="submit">
+            Check Availability
+          </button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <!-- ROOMS -->
+  <section id="rooms">
+    <div class="container">
+      <div class="mb-4">
+        <div class="section-label">Rooms & suites</div>
+        <h2 class="section-title mb-1">Choose your Grand Hyatt address.</h2>
+        <p class="text-muted-soft mb-0">
+          Sample nightly rates are shown below and may vary by date and availability.
+        </p>
+      </div>
+
+      <div class="rooms-wrapper">
+        <!-- FILTER BAR -->
+        <div class="filter-bar">
+          <div class="filter-segment">
+            <span class="filter-label">Display</span>
+            <button type="button" class="filter-pill active" data-view="rooms">By rooms</button>
+            <button type="button" class="filter-pill" data-view="rates">Compact rates</button>
+          </div>
+
+          <div class="filter-segment">
+            <span class="filter-label">Sort</span>
+            <button type="button" class="filter-pill active" data-sort="default">Price</button>
+            <button type="button" class="filter-pill" data-sort="lowest">Lowest</button>
+            <button type="button" class="filter-pill" data-sort="highest">Highest</button>
+          </div>
+
+          <div class="filter-segment">
+            <span class="filter-label">Price</span>
+            <input type="range" class="form-range price-range" id="priceRange" min="600" max="2500" step="50" value="2500">
+            <div class="price-caption" id="priceCaption">Up to SGD 2,500</div>
+          </div>
+
+          <div class="rooms-count" id="roomsCount">7 rooms available</div>
+        </div>
+
+        <!-- ROOM LIST -->
+        <div id="roomList">
+          <div class="room-card" data-price="650">
+            <div class="room-image">
+              <img src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg" alt="Grand King City View">
+            </div>
+            <div class="room-body">
+              <div>
+                <span class="room-badge">Guest Room</span>
+                <h5 class="room-title mt-2">Grand King City View</h5>
+                <div class="room-meta">King bed • Up to 2 guests • City skyline</div>
+                <p class="room-desc mt-2">
+                  A calm city room with plush bedding, curated artwork and generous natural light.
+                </p>
+              </div>
+              <div class="room-footer">
+                <div>
+                  <div class="room-price-label">From</div>
+                  <div class="room-price">SGD 650 <span class="text-muted-soft" style="font-size:.8rem;">/ night</span></div>
+                </div>
+                <button class="btn-room">View details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card" data-price="720">
+            <div class="room-image">
+              <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg" alt="Grand Twin City View">
+            </div>
+            <div class="room-body">
+              <div>
+                <span class="room-badge">Guest Room</span>
+                <h5 class="room-title mt-2">Grand Twin City View</h5>
+                <div class="room-meta">Twin beds • Up to 2 guests • City view</div>
+                <p class="room-desc mt-2">
+                  Ideal for friends or colleagues, with twin beds and a well-lit work desk.
+                </p>
+              </div>
+              <div class="room-footer">
+                <div>
+                  <div class="room-price-label">From</div>
+                  <div class="room-price">SGD 720 <span class="text-muted-soft" style="font-size:.8rem;">/ night</span></div>
+                </div>
+                <button class="btn-room">View details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card" data-price="820">
+            <div class="room-image">
+              <img src="https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg" alt="Grand Deluxe Room">
+            </div>
+            <div class="room-body">
+              <div>
+                <span class="room-badge">Guest Room</span>
+                <h5 class="room-title mt-2">Grand Deluxe Room</h5>
+                <div class="room-meta">King bed • Corner layout • Extra seating</div>
+                <p class="room-desc mt-2">
+                  A larger, corner room with lounge chair and panoramic windows over Orchard Road.
+                </p>
+              </div>
+              <div class="room-footer">
+                <div>
+                  <div class="room-price-label">From</div>
+                  <div class="room-price">SGD 820 <span class="text-muted-soft" style="font-size:.8rem;">/ night</span></div>
+                </div>
+                <button class="btn-room">View details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card" data-price="1350">
+            <div class="room-image">
+              <img src="https://images.pexels.com/photos/2631746/pexels-photo-2631746.jpeg" alt="Grand Club King">
+            </div>
+            <div class="room-body">
+              <div>
+                <span class="room-badge">Grand Club</span>
+                <h5 class="room-title mt-2">Grand Club King</h5>
+                <div class="room-meta">King bed • Club lounge access</div>
+                <p class="room-desc mt-2">
+                  Enjoy dedicated check-in, daily breakfast and evening cocktails in the Grand Club.
+                </p>
+              </div>
+              <div class="room-footer">
+                <div>
+                  <div class="room-price-label">From</div>
+                  <div class="room-price">SGD 1,350 <span class="text-muted-soft" style="font-size:.8rem;">/ night</span></div>
+                </div>
+                <button class="btn-room">View details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card" data-price="1450">
+            <div class="room-image">
+              <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" alt="Grand Suite City View">
+            </div>
+            <div class="room-body">
+              <div>
+                <span class="room-badge">Suite</span>
+                <h5 class="room-title mt-2">Grand Suite City View</h5>
+                <div class="room-meta">Separate living room • Up to 3 guests</div>
+                <p class="room-desc mt-2">
+                  A residential-style suite with defined living and sleeping spaces and a marble bathroom.
+                </p>
+              </div>
+              <div class="room-footer">
+                <div>
+                  <div class="room-price-label">From</div>
+                  <div class="room-price">SGD 1,450 <span class="text-muted-soft" style="font-size:.8rem;">/ night</span></div>
+                </div>
+                <button class="btn-room">View details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card" data-price="1900">
+            <div class="room-image">
+              <img src="https://images.pexels.com/photos/2581541/pexels-photo-2581541.jpeg" alt="Ambassador Suite">
+            </div>
+            <div class="room-body">
+              <div>
+                <span class="room-badge">Signature Suite</span>
+                <h5 class="room-title mt-2">Ambassador Suite</h5>
+                <div class="room-meta">1 bedroom • Dining area • Up to 4 guests</div>
+                <p class="room-desc mt-2">
+                  Perfect for entertaining, with a private dining table, bar counter and Grand Club access.
+                </p>
+              </div>
+              <div class="room-footer">
+                <div>
+                  <div class="room-price-label">From</div>
+                  <div class="room-price">SGD 1,900 <span class="text-muted-soft" style="font-size:.8rem;">/ night</span></div>
+                </div>
+                <button class="btn-room">View details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="room-card" data-price="2400">
+            <div class="room-image">
+              <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg" alt="Presidential Suite">
+            </div>
+            <div class="room-body">
+              <div>
+                <span class="room-badge">Presidential</span>
+                <h5 class="room-title mt-2">Presidential Suite</h5>
+                <div class="room-meta">Study • Dining salon • On request</div>
+                <p class="room-desc mt-2">
+                  Our most prestigious suite, reserved for distinguished occasions and hosted stays.
+                </p>
+              </div>
+              <div class="room-footer">
+                <div>
+                  <div class="room-price-label">From</div>
+                  <div class="room-price">SGD 2,400 <span class="text-muted-soft" style="font-size:.8rem;">/ night</span></div>
+                </div>
+                <button class="btn-room">Enquire</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCES -->
+  <section id="experiences">
+    <div class="container">
+      <div class="row mb-4 align-items-end">
+        <div class="col-lg-7">
+          <div class="section-label">Experiences</div>
+          <h2 class="section-title">Quietly memorable, carefully orchestrated.</h2>
+          <p class="text-muted-soft">
+            From intimate celebrations to discreet business gatherings, every moment is handled
+            with a soft touch and precise attention.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-soft">
+            <div class="icon-circle">∞</div>
+            <h6 class="mb-1">Evening on the Terrace</h6>
+            <p class="small text-muted-soft mb-0">
+              Reserved terrace seating, seasonal canapés and champagne as the city lights up.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-soft">
+            <div class="icon-circle">✦</div>
+            <h6 class="mb-1">Curated City Walks</h6>
+            <p class="small text-muted-soft mb-0">
+              Bespoke walking routes through galleries, boutiques and quiet neighbourhood cafés.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-soft">
+            <div class="icon-circle">♡</div>
+            <h6 class="mb-1">Grand Wellness Rituals</h6>
+            <p class="small text-muted-soft mb-0">
+              Tailored spa journeys and personalised fitness sessions, in-suite or at the spa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DINING -->
+  <section id="dining">
+    <div class="container">
+      <div class="row mb-4 align-items-end">
+        <div class="col-lg-7">
+          <div class="section-label">Dining</div>
+          <h2 class="section-title">Tables for every quiet celebration.</h2>
+          <p class="text-muted-soft">
+            Restaurants and lounges that favour conversation, generous space and thoughtful flavours.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-soft h-100">
+            <div class="small text-uppercase mb-1" style="letter-spacing:.18em;">Steakhouse</div>
+            <h6 class="mb-1">The Grand Grill</h6>
+            <p class="small text-muted-soft mb-0">
+              Prime cuts from the charcoal grill, classic sauces and a deep cellar of old-world wines.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-soft h-100">
+            <div class="small text-uppercase mb-1" style="letter-spacing:.18em;">Asian Signatures</div>
+            <h6 class="mb-1">Orchard Kitchen</h6>
+            <p class="small text-muted-soft mb-0">
+              Elevated Asian dishes in a bright, residential setting — ideal for long family lunches.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-soft h-100">
+            <div class="small text-uppercase mb-1" style="letter-spacing:.18em;">Lobby Lounge</div>
+            <h6 class="mb-1">The Grand Lounge</h6>
+            <p class="small text-muted-soft mb-0">
+              Afternoon tea by day, quietly glamorous bar by night with live piano.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <div class="row mb-4 align-items-end">
+        <div class="col-lg-7">
+          <div class="section-label">Gallery & stories</div>
+          <h2 class="section-title">Grand moments, softly framed.</h2>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-4">
+        <div class="col-md-8">
+          <div class="gallery-main">
+            <img src="https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg" alt="Lobby">
+          </div>
+        </div>
+        <div class="col-md-4 d-flex flex-column gap-3">
+          <div class="gallery-small">
+            <img src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg" alt="Suite">
+          </div>
+          <div class="gallery-small">
+            <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg" alt="City night view">
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <p class="small text-muted-soft text-uppercase mb-1" style="letter-spacing:.18em;">Guest notes</p>
+          <h6 class="mb-2">“Luxury that doesn’t need to announce itself.”</h6>
+          <p class="small text-muted-soft mb-0">
+            “Every detail felt quietly considered — from the lighting to the way the room was laid out.”
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="mb-2">Effortless for business & leisure.</h6>
+          <p class="small text-muted-soft mb-0">
+            “Our meetings, breaks and dinners flowed as one. The team adjusted to every change in the schedule.”
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="mb-2">Your city retreat.</h6>
+          <p class="small text-muted-soft mb-2">
+            Whether a weekend escape or an extended stay, Grand Hyatt becomes your calm address above Orchard Road.
+          </p>
+          <a href="#hero" class="btn-room">Check dates & offers</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <div class="section-label">Contact & reservations</div>
+          <h2 class="section-title">Speak with our reservations team.</h2>
+          <p class="text-muted-soft mb-3">
+            Share your plans and we will recommend the room, suite and experiences that best
+            fit your stay.
+          </p>
+          <div class="row small text-muted-soft">
+            <div class="col-md-6 mb-2">
+              <strong class="d-block text-dark mb-1">Reservations</strong>
+              Phone: +65 6738 1234<br>
+              Email: reservations.singapore@hyatt.com
+            </div>
+            <div class="col-md-6 mb-2">
+              <strong class="d-block text-dark mb-1">Address</strong>
+              Grand Hyatt Singapore<br>
+              10 Scotts Road, Singapore 228211
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 text-lg-end">
+          <p class="small text-muted-soft mb-2">Prefer a tailored itinerary?</p>
+          <a href="#hero" class="btn-room">Request a tailored stay</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>© <span id="year"></span> Grand Hyatt. All rights reserved.</span>
+      <span class="text-uppercase" style="letter-spacing:.18em;font-size:.7rem;">
+        Crafted for the quiet luxury traveller.
+      </span>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL (SIMPLE) -->
+  <div class="modal fade" id="bookingModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Your Grand Hyatt request</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="small mb-2">Thank you. Your request has been received.</p>
+          <ul class="small mb-0">
+            <li><strong>Hotel:</strong> Grand Hyatt Singapore</li>
+            <li><strong>Dates:</strong> <span id="modalDates"></span></li>
+            <li><strong>Guests:</strong> <span id="modalGuests"></span></li>
+            <li><strong>Room type:</strong> <span id="modalRoom"></span></li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-room" data-bs-dismiss="modal">Back to website</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap & JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Date logic
+    const checkinInput = document.getElementById("checkin");
+    const checkoutInput = document.getElementById("checkout");
+    const today = new Date();
+    const isoToday = today.toISOString().split("T")[0];
+    checkinInput.min = isoToday;
+    checkoutInput.min = isoToday;
+    checkinInput.addEventListener("change", () => {
+      if (checkinInput.value) {
+        checkoutInput.min = checkinInput.value;
+        if (checkoutInput.value && checkoutInput.value < checkinInput.value) {
+          checkoutInput.value = checkinInput.value;
+        }
+      }
+    });
+
+    function formatDate(dateStr) {
+      if (!dateStr) return "";
+      const d = new Date(dateStr + "T00:00:00");
+      const opt = { day: "2-digit", month: "short", year: "numeric" };
+      return d.toLocaleDateString("en-GB", opt);
+    }
+
+    // Booking modal
+    const bookingForm = document.getElementById("bookingForm");
+    const modalDates = document.getElementById("modalDates");
+    const modalGuests = document.getElementById("modalGuests");
+    const modalRoom = document.getElementById("modalRoom");
+    const bookingModalEl = document.getElementById("bookingModal");
+
+    bookingForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const checkin = checkinInput.value;
+      const checkout = checkoutInput.value;
+      const guests = document.getElementById("guests").value;
+      const roomType = document.getElementById("roomType").value;
+
+      if (!checkin || !checkout || !guests || !roomType) {
+        alert("Please complete all booking details.");
+        return;
+      }
+
+      modalDates.textContent = `${formatDate(checkin)} – ${formatDate(checkout)}`;
+      modalGuests.textContent = guests;
+      modalRoom.textContent = roomType;
+
+      const modal = new bootstrap.Modal(bookingModalEl);
+      modal.show();
+    });
+
+    // ROOM FILTERS (sort + price + view mode)
+    const roomListEl = document.getElementById("roomList");
+    const roomCards = Array.from(roomListEl.querySelectorAll(".room-card"));
+    const roomsCountEl = document.getElementById("roomsCount");
+    const priceRange = document.getElementById("priceRange");
+    const priceCaption = document.getElementById("priceCaption");
+
+    function updatePriceCaption() {
+      priceCaption.textContent = "Up to SGD " + Number(priceRange.value).toLocaleString();
+    }
+
+    function applyFilters() {
+      const maxPrice = parseInt(priceRange.value, 10);
+      let visible = 0;
+      roomCards.forEach(card => {
+        const p = parseInt(card.dataset.price, 10);
+        const show = p <= maxPrice;
+        card.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+      roomsCountEl.textContent = `${visible} room${visible !== 1 ? "s" : ""} available`;
+    }
+
+    function applySort(order) {
+      if (order === "default") {
+        roomCards.forEach(c => roomListEl.appendChild(c));
+        return;
+      }
+      const sorted = [...roomCards].sort((a,b) => {
+        const pa = parseInt(a.dataset.price,10);
+        const pb = parseInt(b.dataset.price,10);
+        return order === "lowest" ? pa - pb : pb - pa;
+      });
+      sorted.forEach(c => roomListEl.appendChild(c));
+    }
+
+    // Sort pill click
+    document.querySelectorAll('.filter-pill[data-sort]').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill[data-sort]').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        applySort(pill.dataset.sort);
+        applyFilters();
+      });
+    });
+
+    // View mode (compact)
+    document.querySelectorAll('.filter-pill[data-view]').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill[data-view]').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        if (pill.dataset.view === "rates") {
+          roomListEl.classList.add("compact");
+          roomCards.forEach(card => {
+            card.classList.add("py-2");
+            card.querySelectorAll(".room-desc").forEach(d => d.style.display = "none");
+          });
+        } else {
+          roomListEl.classList.remove("compact");
+          roomCards.forEach(card => {
+            card.classList.remove("py-2");
+            card.querySelectorAll(".room-desc").forEach(d => d.style.display = "");
+          });
+        }
+      });
+    });
+
+    priceRange.addEventListener("input", () => {
+      updatePriceCaption();
+      applyFilters();
+    });
+
+    // initial
+    updatePriceCaption();
+    applyFilters();
+  </script>
+</body>
+</html> 
