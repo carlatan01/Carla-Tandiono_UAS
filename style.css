@@ -1,0 +1,261 @@
+:root {
+    --pink: #ffe6eb;        
+    --pink-dark: #ffb7c5;   
+    --lavender: #e3dff2;
+    --lavender-dark: #9daec9;
+    --mint: #e2f0cb;
+    --cream: #fff9f0;
+    --text-dark: #4a4a4a;   
+    --white: #ffffff;
+
+    --radius: 20px;
+    --shadow: 0 10px 30px rgba(216, 174, 187, 0.3); 
+    --transition: 0.3s ease;
+}
+
+body {
+    background: var(--pink);
+    font-family: "Poppins", sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+}
+
+/*NAVBAR */
+.nav-glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0.8rem 0;
+}
+
+.brand-pastel {
+    font-family: "Sacramento", cursive;
+    font-size: 2.5rem;
+    color: #d67ba5; /* Pink tua cantik */
+    text-shadow: 2px 2px 0px #fff;
+}
+
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: #d67ba5 !important;
+}
+
+/* =========================
+   HERO (BOOTSTRAP WALLPAPER STYLE)
+   ========================= */
+.hero-section {
+    height: 100vh;
+    position: relative;
+    /* Gradient Pastel sebagai pengganti gambar background hero */
+    background: linear-gradient(135deg, #ffe6eb 0%, #e3dff2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    z-index: 2;
+    position: relative;
+    /* Hapus margin-top, karena kita ingin konten terpusat */
+    /* margin-top: 50px; */ 
+}
+
+.hero-jumbotron {
+   height: 90vh;
+    position: relative;
+    background: url("pink-aesthetic-3840x2160-16544.jpg")
+        center/cover no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.6);
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.hero-name {
+    font-size: 3.5rem;
+    color: #7a6c88;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* BUTTON STYLES */
+.btn-pastel {
+    background: #ffc4d6;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(255, 196, 214, 0.5);
+    transition: var(--transition);
+}
+
+.btn-pastel:hover {
+    background: #ffabc4;
+    transform: translateY(-3px);
+    color: white;
+}
+
+.btn-outline-pastel {
+    border: 2px solid #a8c0ff;
+    color: #7b9acc;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-outline-pastel:hover {
+    background: #a8c0ff;
+    color: white;
+}
+
+/* =========================
+   SECTIONS
+   ========================= */
+.section {
+    padding: 80px 0;
+    background: var(--pink);
+}
+
+.section-light {
+    padding: 80px 0;
+    background: var(--cream);
+    border-radius: 40px 40px 0 0; /* Lengkungan manis di atas */
+    margin-top: -40px; /* Efek menumpuk */
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    color: #7a6c88;
+    position: relative;
+    display: inline-block;
+}
+
+/* =========================
+   ABOUT
+   ========================= */
+.about-box {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--pink-dark);
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* =========================
+   PROJECTS 
+   ========================= */
+.project-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+    transition: var(--transition);
+    border: 1px solid rgba(255,255,255,0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(200,150,220, 0.25);
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-title {
+    color: #555;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-desc {
+    color: #777;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* BADGES / TAGS (Java, OOP, dll) */
+.tags-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge-pastel {
+    background-color: #f0f4f8;
+    color: #7a6c88;
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 1px solid #e1e1e1;
+}
+
+/* =========================
+   CONTACT
+   ========================= */
+.contact-form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.form-control {
+    border-radius: 12px;
+    padding: 12px;
+    border: 2px solid #f0f0f0;
+    background: #fafafa;
+}
+
+.form-control:focus {
+    border-color: var(--pink-dark);
+    box-shadow: none;
+    background: white;
+}
